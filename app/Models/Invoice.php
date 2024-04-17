@@ -14,7 +14,7 @@ class Invoice extends Model
         'sub_total',
         'date',
         'due_date',
-        'references',
+        'reference',
         'discount',
         'number',
         'terms_and_conditions'
@@ -24,4 +24,9 @@ class Invoice extends Model
     public function customer() {
         return $this->belongsTo(Customer::class);
     }
+
+    public function invoice_items() {
+        return $this->hasMany(InvoiceItem::class);
+    }
+
 }
